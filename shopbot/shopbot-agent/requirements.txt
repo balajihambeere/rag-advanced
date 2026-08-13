@@ -9,7 +9,7 @@ langchain-openai
 
 # ── ChromaDB — retrieval/shadow.py primary reader during migration (Chapter 2) ─
 # Reads the chroma_db/ produced by ../shopbot-ingest/; point ChromaDB at that
-# path (see CLAUDE.md) if shadow.py is ever run again.
+# path if shadow.py is ever run again.
 chromadb==0.6.3
 
 # ── OpenAI ───────────────────────────────────────────────────────────────────

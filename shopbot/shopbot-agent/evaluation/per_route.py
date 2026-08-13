@@ -25,7 +25,7 @@ try:
     import ragas.executor as _rex
     from tqdm.auto import tqdm as _tqdm_auto
 
-    # Same asyncio monkeypatch as evaluation/evaluate.py — see CLAUDE.md Section 18 Issue 1
+    # Same asyncio monkeypatch as evaluation/evaluate.py
     def _patched_executor_results(self):
         import asyncio
         if _rex.is_event_loop_running():

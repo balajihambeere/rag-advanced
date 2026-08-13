@@ -59,9 +59,8 @@ of catalog expansion. Book 2 addresses it with hybrid search and re-ranking.
 ### Note on previous failed attempts
 
 Two earlier pipeline runs (~$0.002 each) were lost to asyncio compatibility failures
-between ragas 0.1.22 and Python 3.14. Root cause identified and fixed (see CLAUDE.md
-Section 17, Issue 3). Checkpoint system added so pipeline results survive future RAGAS
-failures.
+between ragas 0.1.22 and Python 3.14. Root cause identified and fixed. Checkpoint system
+added so pipeline results survive future RAGAS failures.
 
 ---
 

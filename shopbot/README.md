@@ -33,8 +33,7 @@ POST /ask
   → cache write + session update
 ```
 
-See each project's own `CLAUDE.md` for full detail; `CLAUDE.md` at this level is the
-chapter map and the "why split this way" rationale.
+See each project's own docs for full detail.
 
 ---
 
@@ -120,8 +119,7 @@ python -m evaluation.evaluate
 python -m evaluation.per_route
 ```
 
-Book 3 milestones: F=0.91 (post-campaign, blended) · see `CLAUDE.md` Section 1 for the
-full per-chapter and per-route tables. Book 1 baseline: F=0.7494 · CP=0.6417.
+Book 3 milestones: F=0.91 (post-campaign, blended). Book 1 baseline: F=0.7494 · CP=0.6417.
 
 ---
 

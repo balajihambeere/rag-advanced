@@ -39,7 +39,7 @@ async def lifespan(app: FastAPI):
         ) from e
 
     # Compile the LangGraph graph once at startup.
-    # Graph compilation per-request adds latency. See CLAUDE.md Section 19, Rule 6.
+    # Graph compilation per-request adds latency.
     from pipeline.graph import pipeline  # noqa: triggers graph compilation
 
     import os

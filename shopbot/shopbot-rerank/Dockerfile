@@ -5,7 +5,7 @@
 #
 # Container size: ~280 MB (vs 1.8 GB for PyTorch-only embedder + cross-encoder).
 # Cold start: ~6 s (vs 41 s PyTorch; 9 s ONNX FP32).
-# Deploy 3 replicas under campaign load (≥400 qpm) — see CLAUDE.md.
+# Deploy 3 replicas under campaign load (≥400 qpm).
 
 FROM python:3.11-slim
 

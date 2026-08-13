@@ -3,7 +3,7 @@
 # Maps the final PipelineState to one of five named pipeline routes.
 # Used by evaluation/per_route.py to group labeled queries before RAGAS scoring.
 #
-# Five routes (see CLAUDE.md Section 15 for definitions):
+# Five routes:
 #   A — standard retrieval, CRAG ruled RELEVANT
 #   B — standard retrieval, CRAG ruled PARTIAL (re-retrieved)
 #   C — HyDE retrieval,     CRAG ruled RELEVANT
