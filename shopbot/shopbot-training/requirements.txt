@@ -1,0 +1,14 @@
+# ── Env loading + API clients — building the triplet dataset ────────────────
+python-dotenv
+openai
+qdrant-client
+
+# ── Fine-tuning — Chapter 5 ───────────────────────────────────────────────────
+sentence-transformers
+# torch is a transitive dependency of sentence-transformers. Training requires
+# a real (GPU) torch build — do NOT use the CPU-only wheel here, unlike
+# ../shopbot-rerank/'s Dockerfile, which only ever runs inference.
+
+# ── ONNX export — Chapter 6 ───────────────────────────────────────────────────
+# optimum[onnxruntime] is only needed to run export/to_onnx_int8.py.
+# pip install "optimum[onnxruntime]"

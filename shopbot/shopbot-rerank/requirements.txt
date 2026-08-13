@@ -1,0 +1,15 @@
+# ── Served API (main.py) — this is the whole dependency surface ─────────────
+# Stateless service, no env vars, no external clients. Model-lifecycle tooling
+# (fine-tune + export) lives entirely in ../shopbot-training/, not here.
+fastapi
+uvicorn[standard]
+pydantic
+
+# ── Cross-encoder reranker + ONNX INT8 embedder (inference only) ────────────
+sentence-transformers
+# torch is a transitive dependency of sentence-transformers. The Dockerfile
+# installs the CPU-only build separately to keep the image small:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+onnxruntime
+transformers
+numpy

@@ -1,0 +1,54 @@
+# ── Core API ──────────────────────────────────────────────────────────────────
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+
+# ── LangChain OpenAI — used by retrieval/shadow.py (Chapter 2 shadow reads) ───
+langchain-openai
+
+# ── ChromaDB — retrieval/shadow.py primary reader during migration (Chapter 2) ─
+# Reads the chroma_db/ produced by ../shopbot-ingest/; point ChromaDB at that
+# path (see CLAUDE.md) if shadow.py is ever run again.
+chromadb==0.6.3
+
+# ── OpenAI ───────────────────────────────────────────────────────────────────
+openai
+tiktoken
+
+# ── Qdrant Cloud — all retrieval + cache reads ───────────────────────────────
+qdrant-client
+
+# ── BM25 sparse encoder — Chapter 3 hybrid search (query time) ──────────────
+fastembed
+
+# ── Cross-encoder reranker + dense embedder ──────────────────────────────────
+# NOT installed here. Both run in ../shopbot-rerank/, a separate standalone
+# project (its own Dockerfile installs sentence-transformers + torch + onnxruntime).
+# This process only ever talks to it over HTTP — see retrieval/rerank_client.py
+# and infra/clients.py.
+
+# ── LangGraph orchestration — Book 3, Chapter 4 ──────────────────────────────
+# Pin to a tested minor; verify with pipeline.graph.pipeline.get_graph().draw_ascii()
+# after upgrading.
+langgraph
+
+# ── Redis — Chapter 6 session memory + Chapter 7 cache ───────────────────────
+redis
+
+# ── Async HTTP client — rerank/embed microservice + load test ────────────────
+httpx
+
+# ── Google Sheets — Chapter 8 RAGAS Monday ritual ────────────────────────────
+gspread
+
+# ── MLflow experiment tracking + tracing ─────────────────────────────────────
+mlflow
+
+# ── Evaluation ───────────────────────────────────────────────────────────────
+# ragas==0.1.22 pinned — evaluation/evaluate.py written against this version
+# (asyncio monkeypatch targets its internals; do NOT upgrade without re-testing)
+ragas==0.1.22
+# numpy: let pip resolve — chromadb/fastembed need 2.x; ragas 0.1.22 works with it
+datasets
+nest_asyncio

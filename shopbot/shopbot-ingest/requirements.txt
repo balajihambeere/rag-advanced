@@ -1,0 +1,14 @@
+# ── Env loading ───────────────────────────────────────────────────────────────
+python-dotenv
+
+# ── LangChain OpenAI — batch embed_documents() used by ingestion/dual_write.py ─
+langchain-openai
+
+# ── ChromaDB — dual-write migration target (Book 2, Chapter 2); passive in Book 3
+chromadb==0.6.3
+
+# ── Qdrant Cloud — collection setup + dual-write ─────────────────────────────
+qdrant-client
+
+# ── BM25 sparse encoder — hybrid search backfill (Book 2, Chapter 3) ────────
+fastembed
