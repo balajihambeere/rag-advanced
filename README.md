@@ -50,34 +50,88 @@ Book 2 shipped hybrid search, cross-encoder reranking, session memory, and a thr
 
 This codebase is split into **four standalone Python projects plus the storefront** — the same split Book 2 introduced, with one addition: a project dedicated to the embedding-model lifecycle. Each shares no code and no dependencies with its siblings; they communicate only over HTTP, through the Qdrant collection one writes and others read, or — for the one offline, one-time exception — a file copy.
 
-```
-shopbot/shopbot-ingest/     ← Build-time: chunk + embed + write catalog to Qdrant     (no server)
-shopbot/shopbot-agent/       ← FastAPI RAG backend — the /ask endpoint, LangGraph      (port 8000)
-shopbot/shopbot-rerank/       ← Cross-encoder + ONNX INT8 embedder microservice        (port 8001)
-shopbot/shopbot-training/       ← Offline: fine-tune + export the embedding model      (no server)
-shopbot/zudyog-fashion/           ← Next.js storefront + AI chat widget                (port 3000)
+```mermaid
+graph LR
+    subgraph BUILD["Build-time / offline — no server"]
+        ING["shopbot-ingest"]
+        TRAIN["shopbot-training"]
+    end
+
+    WEB["zudyog-fashion<br/>:3000"] -->|"HTTP /ask"| AGENT["shopbot-agent<br/>:8000"]
+    AGENT -->|"HTTP /rerank, /embed"| RERANK["shopbot-rerank<br/>:8001"]
+
+    QDRANT[("Qdrant<br/>zudyog_catalog collection")]
+    REDIS[("Redis<br/>session + cache")]
+    MLFLOW[("MLflow<br/>request tracing")]
+
+    ING -->|writes| QDRANT
+    TRAIN -.->|"model file copy<br/>(manual, one-time)"| RERANK
+    AGENT -->|reads| QDRANT
+    AGENT -->|"session + cache"| REDIS
+    AGENT -->|traces| MLFLOW
 ```
 
 **Request-time pipeline** (`shopbot-agent`, every `/ask` call):
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as shopbot-agent
+    participant R as Redis
+    participant P as LangGraph pipeline
+    participant I as shopbot-rerank
+    participant Q as Qdrant
+    participant L as OpenAI
+    participant M as MLflow
+
+    C->>A: POST /ask {question, session_id}
+    A->>R: load session (recent turns, summary, active SKUs)
+    A->>R: check exact + semantic cache (≥0.97 cosine)
+    alt cache hit
+        R-->>A: cached answer
+    else cache miss
+        A->>P: run pipeline
+        P->>I: POST /embed (query)
+        I-->>P: embedding
+        P->>Q: hybrid search (dense + BM25, RRF)
+        Q-->>P: candidate chunks
+        P->>I: POST /rerank (candidates)
+        I-->>P: top-3 chunks
+        P->>L: generate answer (gpt-4o-mini)
+        L-->>P: answer
+        P-->>A: answer
+        A->>R: write cache + update session
+    end
+    A->>M: trace request (mlflow.openai.autolog)
+    A-->>C: 200 {answer, session_id}
 ```
-POST /ask  (Pydantic-validated input)
-      │
-      ▼
-Session memory load (Redis) — recent turns, rolling summary, active SKUs
-      │
-      ▼
-Three-layer cache — exact match → semantic (≥0.97 cosine) → full pipeline
-      │
-      ▼
-LangGraph pipeline:
-  classify_vague_node → [HyDE | standard hybrid retrieve] → crag_judge_node
-    → generate_node | re_retrieve_node → generate_node | fallback_node
-  (cross-encoder rerank + dense embed inside retrieval: HTTP → shopbot-rerank)
-      │
-      ▼
-Answer — cache write, session update, traced to MLflow
+
+**LangGraph routing** — the "run pipeline" step above, expanded. Five named routes (A–E) fall out of two binary decisions: vague-vs-specific at classification, and RELEVANT/PARTIAL/IRRELEVANT at the CRAG judge.
+
+```mermaid
+flowchart TD
+    START(["classify_vague_node"]) -->|vague query| HYDE["hyde_retrieve_node<br/>HyDE hypothetical doc → retrieve"]
+    START -->|specific query| STANDARD["standard_retrieve_node<br/>hybrid dense + BM25 (RRF)"]
+
+    HYDE --> JUDGE["crag_judge_node"]
+    STANDARD --> JUDGE
+
+    JUDGE -->|RELEVANT| GEN["generate_node"]
+    JUDGE -->|PARTIAL| RERETRIEVE["re_retrieve_node<br/>corrected sub-query"]
+    JUDGE -->|IRRELEVANT| FALLBACK["fallback_node<br/>support hand-off"]
+    RERETRIEVE --> GEN
+
+    GEN --> DONE(["Answer"])
+    FALLBACK --> DONE
 ```
+
+| Route | Path | Traffic share |
+| --- | --- | --- |
+| A — standard, RELEVANT | `standard_retrieve → crag_judge → generate` | ~50% |
+| B — standard, PARTIAL | `standard_retrieve → crag_judge → re_retrieve → generate` | ~18% |
+| C — HyDE, RELEVANT | `hyde_retrieve → crag_judge → generate` | ~16% |
+| D — HyDE, PARTIAL | `hyde_retrieve → crag_judge → re_retrieve → generate` | ~9% |
+| E — fallback | `crag_judge(IRRELEVANT) → fallback` | ~10% |
 
 ## Tech stack
 
