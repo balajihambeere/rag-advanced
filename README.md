@@ -8,7 +8,7 @@
 
 ### 📖 Every line of this code is explained, chapter by chapter, in the book.
 
-![Get Advanced RAG](https://img.shields.io/badge/Get_%22Advanced_RAG%22-→-0A9396?style=for-the-badge&logoColor=white)
+[![Get Advanced RAG on Amazon](https://img.shields.io/badge/Get_%22Advanced_RAG%22-on_Amazon_→-0A9396?style=for-the-badge&logoColor=white)](https://www.amazon.com/dp/B0H3FRPV21/)
 
 This repo shows you *what* was built. The book shows you *why* — every design decision, every dead end, every real evaluation score, written as the chapters that produced this exact code.
 
@@ -23,7 +23,7 @@ This repo shows you *what* was built. The book shows you *why* — every design 
 [![Docker](https://img.shields.io/badge/Docker-Inference%20Microservice-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-Storefront-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 
-📖 Get Advanced RAG · ⭐ Star this repo if it helped you
+📖 [Get the book on Amazon](https://www.amazon.com/dp/B0H3FRPV21/) · ⭐ Star this repo if it helped you
 
 </div>
 
@@ -248,7 +248,7 @@ There's a specific moment every founder building this hits: the first enterprise
 
 **Advanced RAG** is Book 3 of the **RAG Mastery Series** — 11 books on building production Retrieval-Augmented Generation systems, from first embeddings to cloud-native, multi-tenant agentic architectures. Four core books are available now (this one included); seven companion books release quarterly starting November 2026.
 
-**Book 1 — *RAG Essentials*** is available at **[Amazon](https://www.amazon.com/RAG-Essentials-Systems-Grounded-Framework-ebook/dp/B0GYG7137Y)**. **Book 2 — *RAG In Practice*** is available at **[Amazon](https://www.amazon.com/dp/B0H39263QN)**. **Book 3 — *Advanced RAG* — the book behind this repository** — LangGraph orchestration, HyDE, CRAG, and fine-tuned embedding upgrade to that same codebase.
+**Book 1 — *RAG Essentials*** is available at **[Amazon](https://www.amazon.com/RAG-Essentials-Systems-Grounded-Framework-ebook/dp/B0GYG7137Y)**. **Book 2 — *RAG In Practice*** is available at **[Amazon](https://www.amazon.com/dp/B0H39263QN)**. **Book 3 — *Advanced RAG* — the book behind this repository** is available at **[Amazon](https://www.amazon.com/dp/B0H3FRPV21/)** — LangGraph orchestration, HyDE, CRAG, and fine-tuned embedding upgrade to that same codebase.
 
 Every book in the series follows the same principle this repository demonstrates: real, runnable code and measured evaluation scores, not diagrams of an architecture that was never actually built.
 
