@@ -68,7 +68,7 @@ export default function ChatBot() {
         {
           role: "assistant",
           content:
-            "Sorry, I couldn't connect to the assistant right now. Please try again or contact support@zudyog.com",
+            "Sorry, I couldn't connect to the assistant right now. Please try again or contact support@example.com",
         },
       ]);
     } finally {

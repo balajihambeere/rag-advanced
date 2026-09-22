@@ -25,14 +25,13 @@
 
   <text x="20" y="105" fill="#C8E8F0" font-size="24" font-family="Cormorant Garamond,serif" font-style="italic" font-weight="500">No.<tspan fill="#00C8FF" font-size="46" font-style="normal" font-weight="700"> 4</tspan></text>
 
-  <text x="20" y="152" fill="#E8F4F8" font-size="26" font-family="Cormorant Garamond,serif" font-weight="700" letter-spacing="0.5">The AI Solutions</text>
-  <text x="20" y="186" fill="#E8F4F8" font-size="26" font-family="Cormorant Garamond,serif" font-weight="700" letter-spacing="0.5">Architect</text>
+  <text x="20" y="152" fill="#E8F4F8" font-size="26" font-family="Cormorant Garamond,serif" font-weight="700" letter-spacing="0.5">RAG at</text>
+  <text x="20" y="186" fill="#E8F4F8" font-size="26" font-family="Cormorant Garamond,serif" font-weight="700" letter-spacing="0.5">Scale</text>
 
   <line x1="20" y1="200" x2="90" y2="200" stroke="#00C8FF" stroke-width="1"/>
 
-  <text x="20" y="212" fill="#7BAFD4" font-size="12" font-family="Cormorant Garamond,serif" font-style="italic" font-weight="500">Multi-Tenant RAG on AWS Bedrock</text>
-  <text x="20" y="226" fill="#7BAFD4" font-size="12" font-family="Cormorant Garamond,serif" font-style="italic" font-weight="500">with GDPR Compliance and</text>
-  <text x="20" y="240" fill="#7BAFD4" font-size="12" font-family="Cormorant Garamond,serif" font-style="italic" font-weight="500">Audit Trails</text>
+  <text x="20" y="218" fill="#7BAFD4" font-size="12" font-family="Cormorant Garamond,serif" font-style="italic" font-weight="500">Enterprise Architectures for</text>
+  <text x="20" y="233" fill="#7BAFD4" font-size="12" font-family="Cormorant Garamond,serif" font-style="italic" font-weight="500">Reliable AI Systems</text>
 
   <!-- Icon: 3 isolated tenant columns -->
   <g transform="translate(140,279)">

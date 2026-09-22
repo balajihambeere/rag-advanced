@@ -32,8 +32,8 @@ export default function Footer() {
               <li>Returns &amp; Exchanges</li>
               <li>Size Guide</li>
               <li>
-                <a href="mailto:support@zudyog.com" className="hover:text-[#C9A84C] transition-colors">
-                  support@zudyog.com
+                <a href="mailto:support@example.com" className="hover:text-[#C9A84C] transition-colors">
+                  support@example.com
                 </a>
               </li>
             </ul>

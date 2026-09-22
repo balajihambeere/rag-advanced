@@ -1,6 +1,6 @@
-# Contributing to The Senior AI Engineer
+# Contributing to Advanced RAG
 
-Thanks for considering a contribution. This repo is the real, working codebase behind Book 3 of the Zudyog RAG Mastery Series — it's meant to stay a runnable, honest reference implementation, not a polished framework. Contributions that keep it that way are the most welcome kind.
+Thanks for considering a contribution. This repo is the real, working codebase behind Book 3 of the RAG Mastery Series — it's meant to stay a runnable, honest reference implementation, not a polished framework. Contributions that keep it that way are the most welcome kind.
 
 ## Ground rules
 

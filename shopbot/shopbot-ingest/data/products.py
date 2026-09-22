@@ -1079,7 +1079,7 @@ PRODUCTS = [
             },
             {
                 "question": "Can I request custom embroidery colours?",
-                "answer":   "Custom embroidery is available for orders placed 3 weeks in advance. Contact support@zudyog.com for details.",
+                "answer":   "Custom embroidery is available for orders placed 3 weeks in advance. Contact support@example.com for details.",
             },
         ],
     },

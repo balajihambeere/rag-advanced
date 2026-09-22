@@ -78,7 +78,7 @@ def answer_for_eval(query: str) -> tuple[str, list]:
         answer = (
             "I don't have a product that matches that specifically. "
             "Could you describe what you're looking for differently, "
-            "or contact our team at support@zudyog.com?"
+            "or contact our team at support@example.com?"
         )
     else:
         user_msg = build_prompt_multi(query, sub_queries, retrieved, session=None)

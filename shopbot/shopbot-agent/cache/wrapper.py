@@ -16,7 +16,7 @@ from retrieval.system_prompt import SHOPBOT_SYSTEM_B2
 FALLBACK_ANSWER = (
     "I don't have a product that matches that specifically. "
     "Could you describe what you're looking for differently, "
-    "or contact our team at support@zudyog.com?"
+    "or contact our team at support@example.com?"
 )
 
 

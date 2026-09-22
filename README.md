@@ -1,14 +1,14 @@
 <div align="center">
 
-<img src="assests/images/book-3-cover.svg" alt="The Senior AI Engineer — LangGraph, HyDE, CRAG, and Fine-Tuned Embeddings for Advanced RAG (Book 3 cover)" width="260"/>
+<img src="assests/images/book-3-cover.svg" alt="Advanced RAG — Architectures, Optimization, and Retrieval Intelligence (Book 3 cover)" width="260"/>
 
-# The Senior AI Engineer — LangGraph, HyDE, CRAG, and Fine-Tuned Embeddings for Advanced RAG
+# Advanced RAG — Architectures, Optimization, and Retrieval Intelligence
 
-**ShopBot v3**: the advanced-RAG upgrade of an open-source Retrieval-Augmented Generation (RAG) chatbot — the complete companion codebase for *The Senior AI Engineer*, Book 3 of the [Zudyog RAG Mastery Series](https://www.zudyog.com/).
+**ShopBot v3**: the advanced-RAG upgrade of an open-source Retrieval-Augmented Generation (RAG) chatbot — the complete companion codebase for *Advanced RAG*, Book 3 of the RAG Mastery Series.
 
 ### 📖 Every line of this code is explained, chapter by chapter, in the book.
 
-[![Read The Senior AI Engineer](https://img.shields.io/badge/Read_%22The_Senior_AI_Engineer%22-→-0A9396?style=for-the-badge&logoColor=white)](https://www.zudyog.com/books/the-senior-ai-engineer)
+![Get Advanced RAG](https://img.shields.io/badge/Get_%22Advanced_RAG%22-→-0A9396?style=for-the-badge&logoColor=white)
 
 This repo shows you *what* was built. The book shows you *why* — every design decision, every dead end, every real evaluation score, written as the chapters that produced this exact code.
 
@@ -23,7 +23,7 @@ This repo shows you *what* was built. The book shows you *why* — every design 
 [![Docker](https://img.shields.io/badge/Docker-Inference%20Microservice-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-Storefront-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 
-📖 [Read the book](https://www.zudyog.com/books/the-senior-ai-engineer) · 🌐 [zudyog.com](https://www.zudyog.com/) · ⭐ Star this repo if it helped you
+📖 Get Advanced RAG · ⭐ Star this repo if it helped you
 
 </div>
 
@@ -205,7 +205,7 @@ Each project's `.env.example` documents the environment variables it needs (`sho
 ## Repository structure
 
 ```
-the-senior-ai-engineer/
+rag-advanced/
 └── shopbot/
     ├── shopbot-ingest/       # Build-time: chunker, embedder, Qdrant + BM25 writer
     ├── shopbot-agent/         # FastAPI backend: LangGraph, retrieval, memory, cache, evaluation, /ask
@@ -222,19 +222,19 @@ Developers and ML engineers who've already got hybrid search and reranking worki
 
 ## Related
 
-This is Book 3 of the RAG Mastery series, continuing the exact ShopBot codebase from **Book 2, [*The Applied AI Engineer*](https://www.zudyog.com/books/the-applied-ai-engineer)** — hybrid search, cross-encoder reranking, and the production split this book's architecture builds on.
+This is Book 3 of the RAG Mastery series, continuing the exact ShopBot codebase from **Book 2, [*RAG In Practice*](https://www.amazon.com/dp/B0H39263QN)** — hybrid search, cross-encoder reranking, and the production split this book's architecture builds on.
 
 ## Where the story goes next
 
 <table>
 <tr>
 <td width="140" valign="top">
-<img src="assests/images/book-4-cover.svg" alt="The AI Solutions Architect — Multi-Tenant RAG on AWS Bedrock with GDPR Compliance and Audit Trails (Book 4 cover)" width="120"/>
+<img src="assests/images/book-4-cover.svg" alt="RAG at Scale — Enterprise Architectures for Reliable AI Systems (Book 4 cover)" width="120"/>
 </td>
 <td valign="top">
 
-### Book 4 — [The AI Solutions Architect](https://www.zudyog.com/books/the-ai-solutions-architect)
-**Multi-Tenant RAG on AWS Bedrock with GDPR Compliance and Audit Trails**
+### Book 4 — RAG at Scale
+**Enterprise Architectures for Reliable AI Systems**
 
 There's a specific moment every founder building this hits: the first enterprise customer asks "can you guarantee my data never touches another tenant's index, and can you prove it in an audit?" Book 4 builds the Pramana Framework for every tenant you'll ever sign — per-tenant Qdrant collections, AWS Bedrock at scale, and GDPR-compliant deletion pipelines that hold up when someone actually asks you to produce the receipt.
 
@@ -242,13 +242,13 @@ There's a specific moment every founder building this hits: the first enterprise
 </tr>
 </table>
 
-**[Book 1 is free.](https://www.zudyog.com/books/the-ai-engineer)** A subscription unlocks the full series, including this book. [See the full series →](https://www.zudyog.com/)
+**[Get RAG Essentials on Amazon.](https://www.amazon.com/RAG-Essentials-Systems-Grounded-Framework-ebook/dp/B0GYG7137Y)** Book 3 continues that exact codebase through Book 2's hybrid search and production split, into LangGraph orchestration, HyDE, CRAG, and fine-tuned embeddings.
 
-## About Zudyog
+## About the book
 
-[**Zudyog**](https://www.zudyog.com/) publishes the **RAG Mastery Series** — 11 books on building production Retrieval-Augmented Generation systems, from first embeddings to cloud-native, multi-tenant agentic architectures. Four core books are available now (this one included); seven companion books release quarterly starting November 2026.
+**Advanced RAG** is Book 3 of the **RAG Mastery Series** — 11 books on building production Retrieval-Augmented Generation systems, from first embeddings to cloud-native, multi-tenant agentic architectures. Four core books are available now (this one included); seven companion books release quarterly starting November 2026.
 
-**Book 1 — *The AI Engineer* — is completely free to read** at [zudyog.com/books/the-ai-engineer](https://www.zudyog.com/books/the-ai-engineer). A subscription unlocks the full series, including this book's LangGraph orchestration, HyDE, CRAG, and fine-tuned embedding upgrade to that same codebase.
+**Book 1 — *RAG Essentials*** is available at **[Amazon](https://www.amazon.com/RAG-Essentials-Systems-Grounded-Framework-ebook/dp/B0GYG7137Y)**. **Book 2 — *RAG In Practice*** is available at **[Amazon](https://www.amazon.com/dp/B0H39263QN)**. **Book 3 — *Advanced RAG* — the book behind this repository** — LangGraph orchestration, HyDE, CRAG, and fine-tuned embedding upgrade to that same codebase.
 
 Every book in the series follows the same principle this repository demonstrates: real, runnable code and measured evaluation scores, not diagrams of an architecture that was never actually built.
 
